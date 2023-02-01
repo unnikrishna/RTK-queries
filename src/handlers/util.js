@@ -60,10 +60,10 @@ export const handleSubmit = ({ e, formValues, setFormValues, setForm, dispatch }
   if (isValidForm) dispatch(
     setForm({
       firstName: newFormValues.firstName.value,
-      age: newFormValues.age.value,
+      // age: newFormValues.age.value,
       email: newFormValues.email.value,
-      phoneNumber: newFormValues.phoneNumber.value,
-      password: newFormValues.password.value,
+      // phoneNumber: newFormValues.phoneNumber.value,
+      // password: newFormValues.password.value,
     })
   );
 };
@@ -78,16 +78,16 @@ export const registrationFormFields = {
     errorType: "required",
     validator: isAlphaNumericWithSpace,
   },
-  age: {
-    value: "",
-    error: false,
-    errorMessage: {
-      required: "Age is required!",
-      regex: "Age must be between 18-150!",
-    },
-    errorType: "required",
-    validator: isValidAge,
-  },
+  // age: {
+  //   value: "",
+  //   error: false,
+  //   errorMessage: {
+  //     required: "Age is required!",
+  //     regex: "Age must be between 18-150!",
+  //   },
+  //   errorType: "required",
+  //   validator: isValidAge,
+  // },
   email: {
     value: "",
     error: false,
@@ -98,25 +98,25 @@ export const registrationFormFields = {
     errorType: "required",
     validator: isValidEmail,
   },
-  phoneNumber: {
-    value: "",
-    error: false,
-    errorMessage: {
-      required: "Phone Number is required!",
-      regex: "Must be a valid phone number!",
-    },
-    errorType: "required",
-    validator: isValidPhoneNumber,
-  },
-  password: {
-    value: "",
-    error: false,
-    errorMessage: {
-      required: "Password is required!",
-      regex:
-        "Password must contain min 8 character with lowercase, uppercase, number and special character!",
-    },
-    errorType: "required",
-    validator: isValidPassword,
-  },
+  // phoneNumber: {
+  //   value: "",
+  //   error: false,
+  //   errorMessage: {
+  //     required: "Phone Number is required!",
+  //     regex: "Must be a valid phone number!",
+  //   },
+  //   errorType: "required",
+  //   validator: isValidPhoneNumber,
+  // },
+  // password: {
+  //   value: "",
+  //   error: false,
+  //   errorMessage: {
+  //     required: "Password is required!",
+  //     regex:
+  //       "Password must contain min 8 character with lowercase, uppercase, number and special character!",
+  //   },
+  //   errorType: "required",
+  //   validator: isValidPassword,
+  // },
 };

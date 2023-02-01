@@ -3,19 +3,17 @@ import { createSlice } from "@reduxjs/toolkit";
 export const registrationForm = createSlice({
   name: "registration",
   initialState: {
-    firstName: "",
-    email: "",
-    age: "",
-    phoneNumber: "",
-    password: "",
+    users:[]
   },
   reducers: {
     setForm: (state, action) => {
-      state.firstName = action.payload.firstName;
-      state.email = action.payload.email;
-      state.age = action.payload.age;
-      state.phoneNumber = action.payload.phoneNumber;
-      state.password = action.payload.password;
+      const user = {}
+      user.firstName = action.payload.firstName;
+      user.email = action.payload.email;
+      user.age = action.payload.age;
+      user.phoneNumber = action.payload.phoneNumber;
+      user.password = action.payload.password;
+      state.users.push(user)
     },
   },
 });

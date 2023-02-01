@@ -20,6 +20,8 @@ import {
 import Footer from "../../components/footer";
 import UserCard from "../../components/userCard";
 import { setForm } from "../../reducers/registration/reducer";
+import { registrationFormList } from "./form";
+
 const theme = createTheme();
 
 export default function SignUp() {
@@ -53,7 +55,33 @@ export default function SignUp() {
             sx={{ mt: 3 }}
           >
             <Grid container spacing={2}>
-              <Grid item xs={12} sm={12}>
+              {
+                registrationFormList.map(fields=>{
+                  return (
+                    <TextField
+                      name={fields.id}
+                      required={fields.required}
+                      fullWidth={fields.fullWidth}
+                      id={fields.id}
+                      inputProps={fields.inputProps && fields.inputProps}
+                      label={fields.label}
+                      autoFocus={fields.autoFocus}
+                      value={formValues[fields.id].value}
+                      onChange={(e) =>
+                        handleChange({ e, setFormValues, formValues })
+                      }
+                      error={formValues[fields.id].error}
+                      helperText={
+                        formValues[fields.id].error &&
+                        formValues[fields.id].errorMessage[
+                          formValues[fields.id].errorType
+                        ]
+                      }
+                    />
+                  );
+                })
+              }
+              {/* <Grid item xs={12} sm={12}>
                 <TextField
                   autoComplete="given-name"
                   name="firstName"
@@ -160,7 +188,7 @@ export default function SignUp() {
                     ]
                   }
                 />
-              </Grid>
+              </Grid> */}
             </Grid>
 
             <Button
